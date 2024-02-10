@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Box, Flex, Button, Textarea, useToast } from "@chakra-ui/react";
 import { UseMutation } from "@/hooks/useMutation";
 import Cookies from "js-cookie";
-import showToast from "@/utils/useToast";
+import { useRouter } from "next/router";
 
 const CreateBlog = () => {
+  const router = useRouter();
   const { mutationData } = UseMutation();
   const [payload, setPayload] = useState({
     description: "",
@@ -38,6 +39,7 @@ const CreateBlog = () => {
         isClosable: true,
         position: "top",
       });
+      router.reload();
     }
   };
 

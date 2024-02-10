@@ -9,8 +9,6 @@ export function middleware(request) {
   const isLoginPage = pathname.startsWith("/login");
   const isRegisterPage = pathname.startsWith("/register");
 
-  console.log("login => ", isLoginPage);
-
   if (isCookiesExist === false && !isLoginPage && !isRegisterPage) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
@@ -24,7 +22,6 @@ export function middleware(request) {
   }
 }
 
-// See "Matching Paths" below to learn more
 export const config = {
   matcher: "/((?!api|_next/static|_next/image|favicon.ico).*)",
 };

@@ -16,6 +16,8 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { UseMutation } from "@/hooks/useMutation";
 import { useRouter } from "next/router";
 import AuthComponent from "@/components/Auth";
+import Link from "next/link";
+import { CustomForm } from "@/components/Form";
 
 const RegisterPage = () => {
   const [payload, setPayload] = useState({
@@ -64,58 +66,29 @@ const RegisterPage = () => {
       </Box>
       <Box my={4} textAlign="left">
         <Stack>
-          <FormControl>
-            <FormLabel>Name User</FormLabel>
-            <Input
-              type="text"
-              placeholder="Enter your name"
-              onChange={(e) => setPayload({ ...payload, name: e.target.value })}
-              value={payload?.name}
-              bg="whiteAlpha.800"
-              border="none"
-              _focus={{ border: "none", bg: "whiteAlpha.900" }}
-            />
-          </FormControl>
-          <FormControl mt={4}>
-            <FormLabel>Email address</FormLabel>
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              onChange={(e) =>
-                setPayload({ ...payload, email: e.target.value })
-              }
-              value={payload?.email}
-              bg="whiteAlpha.800"
-              border="none"
-              _focus={{ border: "none", bg: "whiteAlpha.900" }}
-            />
-          </FormControl>
-          <FormControl mt={4}>
-            <FormLabel>Password</FormLabel>
-            <InputGroup>
-              <Input
-                type={showPassword ? "text" : "password"}
-                placeholder="Enter your password"
-                onChange={(e) =>
-                  setPayload({ ...payload, password: e.target.value })
-                }
-                value={payload?.password}
-                bg="whiteAlpha.800"
-                border="none"
-                _focus={{ border: "none", bg: "whiteAlpha.900" }}
-              />
-              <InputRightElement>
-                <Button
-                  variant="ghost"
-                  h="1.75rem"
-                  size="sm"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <ViewOffIcon /> : <ViewIcon />}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-          </FormControl>
+          <CustomForm
+            label="Name User"
+            type="text"
+            placeholder="Enter your name"
+            onChange={(e) => setPayload({ ...payload, name: e.target.value })}
+            value={payload?.name}
+          />
+          <CustomForm
+            type="email"
+            label="Email address"
+            placeholder="Enter your email"
+            onChange={(e) => setPayload({ ...payload, email: e.target.value })}
+            value={payload?.email}
+          />
+          <CustomForm
+            type="password"
+            label="Password"
+            placeholder="Enter your password"
+            onChange={(e) =>
+              setPayload({ ...payload, password: e.target.value })
+            }
+            value={payload?.password}
+          />
           <FormControl>
             <Button
               colorScheme="teal"
@@ -133,9 +106,12 @@ const RegisterPage = () => {
       </Box>
       <p>
         Sudah Punya Akun?{" "}
-        <a style={{ textDecoration: "underline", color: "blue" }} href="/login">
+        <Link
+          style={{ textDecoration: "underline", color: "blue" }}
+          href="/login"
+        >
           Masuk Akun
-        </a>
+        </Link>
       </p>
     </AuthComponent>
   );

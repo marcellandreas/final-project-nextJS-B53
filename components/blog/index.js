@@ -6,8 +6,6 @@ import {
   Text,
   Button,
   IconButton,
-  Input,
-  Textarea,
   Modal,
   ModalOverlay,
   ModalContent,

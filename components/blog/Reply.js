@@ -141,28 +141,40 @@ const Reply = ({ id, onClose, userId }) => {
             Balasan
           </Heading>
           <>
-            {dataReply &&
-              dataReply.map((data) => (
-                <Box bg="gray.100" p={2} mb={2} borderRadius="md">
-                  <Flex justifyContent="space-between">
-                    <Heading as="h3" fontSize="md" mb={1}>
-                      {data?.user?.name}
-                    </Heading>
-                    {userData?.id === userId ? (
-                      <Button
-                        onClick={() => {
-                          handleOpenDeleteModal();
-                          setIdReply(data?.id);
-                        }}
-                      >
-                        hapus
-                      </Button>
-                    ) : null}
-                  </Flex>
+            {dataReply?.length === 0 ? (
+              <p>data</p>
+            ) : (
+              <Box>
+                {dataReply &&
+                  dataReply?.map((data) => (
+                    <Box
+                      key={data.id}
+                      bg="gray.100"
+                      p={2}
+                      mb={2}
+                      borderRadius="md"
+                    >
+                      <Flex justifyContent="space-between">
+                        <Heading as="h3" fontSize="md" mb={1}>
+                          {data?.user?.name}
+                        </Heading>
+                        {userData?.id === userId ? (
+                          <Button
+                            onClick={() => {
+                              handleOpenDeleteModal();
+                              setIdReply(data?.id);
+                            }}
+                          >
+                            hapus
+                          </Button>
+                        ) : null}
+                      </Flex>
 
-                  <Text fontSize="md">{data?.description}</Text>
-                </Box>
-              ))}
+                      <Text fontSize="md">{data?.description}</Text>
+                    </Box>
+                  ))}
+              </Box>
+            )}
           </>
         </Box>
       </ModalBody>

@@ -103,7 +103,7 @@ const ProfilePage = () => {
           </Box>
           <Box pt={5} gap={2} display={"flex"} flexDirection="column">
             {postingMe?.data.map((data) => (
-              <BlogPost data={data} />
+              <BlogPost key={data.id} data={data} />
             ))}
           </Box>
         </Box>

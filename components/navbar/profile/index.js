@@ -31,7 +31,7 @@ const ProfileUser = ({ handleLogout, dataNotif }) => {
           </Link>
         </MenuItem>
         <MenuItem gap={2} bgSize={4}>
-          <a href="/notifications" className="flex gap-2">
+          <Link href="/notifications" className="flex gap-2">
             <span className="relative text-xl">
               <FaRegBell />
               <p className=" absolute -top-2 flex justify-center items-center rounded-full w-4 h-4 -right-1 bg-red-400 text-sm ">
@@ -39,7 +39,7 @@ const ProfileUser = ({ handleLogout, dataNotif }) => {
               </p>
             </span>
             <span>Notifikasi</span>{" "}
-          </a>
+          </Link>
         </MenuItem>
         <MenuItem onClick={() => handleLogout()}>
           <Flex gap={2} justifyContent={"center"} alignItems="center">

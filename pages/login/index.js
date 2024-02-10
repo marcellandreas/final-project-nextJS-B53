@@ -18,6 +18,7 @@ import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import AuthComponent from "@/components/Auth";
 import { CustomForm, CustomInput } from "@/components/Form";
+import Link from "next/link";
 
 const LoginPage = () => {
   const [payload, setPayload] = useState({
@@ -68,14 +69,6 @@ const LoginPage = () => {
       </Box>
       <Box my={4} textAlign="left">
         <Stack>
-          {/* <CustomInput
-            label="Email Address"
-            type="email"
-            placeholder="Enter your email"
-            onChange={(e) => setPayload({ ...payload, email: e.target.value })}
-            value={payload?.email}
-          /> */}
-
           <CustomForm
             type="email"
             label="Email address"
@@ -109,12 +102,12 @@ const LoginPage = () => {
       </Box>
       <p>
         Belum Punya Akun?{" "}
-        <a
+        <Link
           style={{ textDecoration: "underline", color: "blue" }}
           href="/register"
         >
           Buat Akun
-        </a>
+        </Link>
       </p>
     </AuthComponent>
   );

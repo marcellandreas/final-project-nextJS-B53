@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { Box, Flex, Button, Textarea, useToast } from "@chakra-ui/react";
-import { UseMutation } from "@/hooks/useMutation";
-import Cookies from "js-cookie";
+import React from "react";
+import { Box, Flex, Button, Textarea } from "@chakra-ui/react";
 
 const EditBlog = ({ payload, setPayload, onSubmit, onClose }) => {
   return (
